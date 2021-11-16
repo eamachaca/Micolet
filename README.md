@@ -16,7 +16,9 @@ Things you may want to cover:
 
 Copy and paste  `rake db:drop && rake db:create && rake db:migrate && rake db:seed`
 
+### Run with PUMA
 
+rails s -e development
 
 
 Sorry, i don't have experiences with Test's
