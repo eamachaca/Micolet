@@ -1,19 +1,58 @@
 <%= render 'shared/navbar' %>
-
+<p id="notice"><%= notice %></p>
 <div class="container mt-4 border">
-  <div class="container-content">
-    <h1 class="m-3">Rails 6 with Bootstrap 🚀🚀🚀</h1>
-    <div class="m-3">
-      <p class="">Quick demonstration of bootstrap on a rails web application.</p>
-      <h2>Features</h2></h2>
-      <span>
-        <ul>
-          <li>Create the rails 6 project</li>
-          <li>Add Bootstrap</li>
-          <li>Add navbar component</li>
-          <li>Add homepage page</li>
-        </ul>
-      </span>
+  <div class="text-center">
+    <img class="rounded mx-auto d-block" src="https://d30o7qbghf97ws.cloudfront.net/micolet-logo.svg" width="300px">
+    <h3><strong>Welcome! Soon we willl launch our site in this country</strong></h3>
+    <h4><strong>Subscribe to receive our newsletter</strong></h4>
+    <%= render 'form', user: @user %>
+    <br>
+    <br>
+    <br>
+    <br>
+  </div>
+  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+    <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <strong class="me-auto">Error</strong>
+        <small>1 second ago</small>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body">
+        Hello, Select at least one option!
+      </div>
     </div>
   </div>
 </div>
+<script>
+    const bsAlert = new bootstrap.Toast(document.getElementById('liveToast'));
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+
+    function submitUser(event) {
+        const preferences = document.getElementsByName("preferences[]");
+        let aux = false;
+        for (const preference of preferences) {
+            if (preference.checked) {
+                aux = true;
+                break;
+            }
+        }
+        const form=document.getElementById('needs_validation');
+        if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+        }else{
+            document.getElementById('user_email').classList.add('is-valid')
+        }
+
+        form.classList.add('was-validated')
+        if (!aux) {
+            bsAlert.show()
+            setTimeout(function () {
+                document.getElementById('user_submit').disabled = false
+            }, 1000)
+        }
+        return aux;
+
+    }
+</script>

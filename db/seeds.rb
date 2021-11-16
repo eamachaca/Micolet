@@ -5,3 +5,4 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Preference.create([{name: "Women's Fashion"},{name: "Men's Fashion"},{name: "Children's Fashion"}])

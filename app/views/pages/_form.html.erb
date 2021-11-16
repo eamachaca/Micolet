@@ -1,0 +1,29 @@
+<% if user.errors.messages_for(:email).any? %>
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <% user.errors.messages_for(:email).each do |error| %>
+      Email <%= error %>
+    <% end %>
+  </div>
+<% end %>
+<%= form_with(model: user, :html => { :onsubmit => "return submitUser(event)", :id => :needs_validation,
+                                      :novalidate => true }) do |form| %>
+  <div class="mb-3">
+    <%= form.label :email, :class => 'form-label' %>
+    <%= form.text_field :email, :type => :email, :class => 'form-control text-center', :required => true %>
+    <div id="email" class="invalid-feedback">
+      El correo Electrónico no tiene el formato
+    </div>
+  </div>
+
+  <% @preferences.each do |preference| %>
+    <div class="field">
+      <input class="form-check-input" type="checkbox" name="preferences[]" value="<%= preference.id %>">
+      <label class="form-check-label" s><%= preference.name %> </label>
+      <!-- <input type="checkbox" name="user[preferences][]" value="preference.id"> <label>preference.name</label> It's my purpose to validation with user model, don't func T_T-->
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit :id => :user_submit %>
+  </div>
+<% end %>
