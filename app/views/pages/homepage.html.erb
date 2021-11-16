@@ -3,8 +3,8 @@
 <div class="container mt-4 border">
   <div class="text-center">
     <img class="rounded mx-auto d-block" src="https://d30o7qbghf97ws.cloudfront.net/micolet-logo.svg" width="300px">
-    <h3><strong>Welcome! Soon we willl launch our site in this country</strong></h3>
-    <h4><strong>Subscribe to receive our newsletter</strong></h4>
+    <h3><strong><%=t(:welcome) %></strong></h3>
+    <h4><strong><%=t(:newsletter) %></strong></h4>
     <%= render 'form', user: @user %>
     <br>
     <br>
@@ -14,12 +14,12 @@
   <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
     <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
       <div class="toast-header">
-        <strong class="me-auto">Error</strong>
+        <strong class="me-auto"><%= t(:title_toast) %></strong>
         <small>1 second ago</small>
         <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
       </div>
       <div class="toast-body">
-        Hello, Select at least one option!
+        <%= t(:toast) %>
       </div>
     </div>
   </div>

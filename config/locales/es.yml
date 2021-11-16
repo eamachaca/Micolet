@@ -29,15 +29,28 @@
 # To learn more, please read the Rails Internationalization guide
 # available at https://guides.rubyonrails.org/i18n.html.
 
-en:
-  hello: "Hello world"
-  welcome: "Welcome! Soon we will launch our site in this country"
-  newsletter: "Subscribe to receive our newsletter"
-  email: "Email"
-  format_email: "The email is not in the correct format"
-  toast: "Hola. Selecciona mínimo una preferencia!"
+es:
+  welcome: "Bienvenido! Pronto lanzaremos el sitio en tu país"
+  newsletter: "Suscríbete para recibir las noticias"
+  email: "Correo Electrónico"
+  title_toast: "Seleccionar una opción"
+  format_email: "El correo Electrónico no tiene el formato"
+  toast: "Hola, Por favor, ¡Tiene que seleccionar una opción cómo mínimo!"
+  "Children's Fashion": "Moda de Niños"
+  "Men's Fashion": "Moda Masculina"
+  "Women's Fashion": "Moda Femenina"
   pages:
     create:
-      success: "User and preferences configured!"
-
+      success: "¡Se ha configurado el usuario con sus preferencias!"
+  activerecord:
+    attributes:
+      user:
+        email: "Correo Electrónico"
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "no puede estar vacío"
+              taken: "ya fué creado"
 

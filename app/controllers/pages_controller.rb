@@ -11,7 +11,7 @@ class PagesController < ApplicationController
     if @user.save
       prefers = params.require(:preferences)
 
-      redirect_to root_url, notice: "User was successfully created."
+      redirect_to root_url, notice: t('.success')
     else
       render :homepage
     end
@@ -26,6 +26,6 @@ class PagesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def user_params
-    params.require(:user).permit(:email )
+    params.require(:user).permit(:email)
   end
 end
